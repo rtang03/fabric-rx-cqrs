@@ -1,0 +1,20 @@
+export const TYPES = {
+  ActionReducer: Symbol.for('ActionReducer'),
+  ChannelEvent: Symbol.for('Channel Event Handler'),
+  Dispatcher: Symbol.for('Dispatcher'),
+  FabricService: Symbol.for('Fabric Service'),
+  InitialReducer: Symbol.for('Initial Reducer'),
+  InitialState: Symbol.for('Initial State'),
+  Logger: Symbol.for('Logger'),
+  Reducer: Symbol.for('Reducer'),
+  State: Symbol.for('State'),
+  Store: Symbol.for('Store'),
+  PubSub: Symbol.for('PubSub'),
+  EntityEffect: Symbol.for('Entity Effect'),
+  EntityCEffect: Symbol.for('Entity-Command Effect'),
+  EntityQEffect: Symbol.for('Entity-Query Effect'),
+  FabricEffect: Symbol.for('Fabric Effect'),
+  SideEffect: Symbol.for('Side Effect Observable'),
+  ProjectionEffect: Symbol.for('Projection Effect'),
+  DefaultReducer: Symbol.for('Default Reducer')
+};

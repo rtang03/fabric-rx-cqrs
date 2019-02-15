@@ -1,0 +1,83 @@
+{
+  "name": "fabric-rx-cqrs",
+  "version": "0.1.0",
+  "description": "Library to empower Hyperledger Fabric with CQRS-ES & Reactive Patterns",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "keywords": [
+    "Hyperledger",
+    "Fabric",
+    "rxjs",
+    "cqrs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtang03/fabric-rx-cqrs.git"
+  },
+  "homepage": "https://github.com/rtang03/fabric-rx-cqrs#readme",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "test": "yarn run build && mocha --timeout 20000 ./dist/service/eventstore.spec.js",
+    "test:entity-cqrs": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity/entity.spec.js",
+    "test:entity-command": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity-command/entity.spec.js",
+    "test:entity-query": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity-query/entity.spec.js",
+    "test:projection": "yarn run build && mocha --timeout 20000 ./dist/cqrs/projection/projection.spec.js",
+    "test:counter": "yarn run build && mocha --timeout 20000 ./dist/cqrs/example/repository.spec.js",
+    "build": "npm run clean && tsc",
+    "build:watch": "tsc -w",
+    "clean": "rimraf dist",
+    "addToWallet": "rimraf identity && ./node_modules/.bin/ts-node ./src/addToWallet.ts"
+  },
+  "engineStrict": true,
+  "author": "Ross Tang",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "dotenv": "^6.2.0",
+    "fabric-client": "latest",
+    "fabric-network": "~1.4.0",
+    "graphql-subscriptions": "^1.0.0",
+    "graphql-type-json": "^0.2.1",
+    "inversify": "^5.0.1",
+    "inversify-inject-decorators": "^3.1.0",
+    "js-yaml": "^3.12.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.23.0",
+    "prettyjson": "^1.2.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.3.3",
+    "type-graphql": "^0.16.0",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/bytebuffer": "^5.0.34",
+    "@types/chai": "^4.1.7",
+    "@types/lodash": "^4.14.119",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^8.10.39",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "ts-loader": "^4.2.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.2.4"
+  },
+  "prettier": {
+    "eslintIntegration": false,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true,
+    "requirePragma": false,
+    "insertPragma": false
+  }
+}
