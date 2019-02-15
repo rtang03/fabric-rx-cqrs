@@ -26,4 +26,6 @@ identity
 .env.test.local
 .env.production.local
 
+gateway/core.connection.yaml
+
 NOTE.MD
