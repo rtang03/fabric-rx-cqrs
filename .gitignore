@@ -15,7 +15,6 @@ dist
 
 # dotenv environment variables file
 .env
-.env.example
 
 identity
 

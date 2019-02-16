@@ -1,14 +1,17 @@
 {
   "name": "fabric-rx-cqrs",
-  "version": "0.1.1",
-  "description": "Library to empower Hyperledger Fabric with CQRS-ES & Reactive Patterns",
+  "version": "0.1.2",
+  "description": "Library to empower Hyperledger Fabric application with CQRS-ES & Reactive Patterns",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "keywords": [
     "Hyperledger",
     "Fabric",
     "rxjs",
-    "cqrs"
+    "cqrs",
+    "reactive",
+    "event sourcing",
+    "graphql"
   ],
   "repository": {
     "type": "git",
