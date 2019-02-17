@@ -1,6 +1,6 @@
 {
   "name": "fabric-rx-cqrs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Library to empower Hyperledger Fabric application with CQRS-ES & Reactive Patterns",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
