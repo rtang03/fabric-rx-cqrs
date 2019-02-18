@@ -65,22 +65,22 @@ export const getQueryResolver: <T extends ClassType>(
     @Query(() => returnType, { name: `get${capitalize(suffix)}` })
     async query(
       @Arg('id', () => String) id: string,
-      @Ctx() { repo }
+      @Ctx() { repo: { getById } }
     ): Promise<T> {
-      return repo.getById(id).then(({ currentState }) => currentState);
+      return getById(id).then(({ currentState }) => currentState);
     }
 
     @Query(() => [returnType], { name: `getAll${capitalize(suffix)}` })
-    async queryAll(@Ctx() { repo }): Promise<T[]> {
-      return repo.getByEntityName().then(({ entities }) => entities);
+    async queryAll(@Ctx() { repo: { getByEntityName } }): Promise<T[]> {
+      return getByEntityName().then(({ entities }) => entities);
     }
 
     @Query(() => [Entity], { name: `${suffix}Commits` })
     async getCommits(
       @Arg('id', () => String) id: string,
-      @Ctx() { repo }
+      @Ctx() { repo: { getCommitById } }
     ): Promise<Entity[]> {
-      return repo.getCommitById(id).then(({ entities }) => entities || []);
+      return getCommitById(id).then(({ entities }) => entities || []);
     }
   }
   return AbstractResolver;

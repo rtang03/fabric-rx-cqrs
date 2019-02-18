@@ -146,7 +146,7 @@ const counterRepository = getRepository<Counter, CounterEvent>(
 );
 ```
 
-**getRepository** is the most commonly used function, which returns typed Repository T;
+**getRepository** is the most commonly used function, which returns typed Repository;
 K being the type argument for typed BaseEvent.  
 
 `getRepository<T, K>(entityName: string, reducer: () => void): Repository`
@@ -218,8 +218,30 @@ type Repository<T, K> = {
     { where?: Partial<T>; all?: boolean; contain?: string }
   ) => Promise<{ projections: T[] }>;
 }
-```
+```  
   
+**Reconcile**  
+Lastly, `reconcile()` performs reconcilation from write-side Fabric, to in-memory database; 
+is the key bootstraping procedure for each peer application.  
+
+`const reconcile = async (entityName: string, reducer: () => void) => Promise<any>`
+
+In each peer application, it can run multiple reconcile, for different `entityName`. e.g.  
+
+```
+reconcile('counterA', counterReducer);
+reconcile('counterB', counterReducer);
+```
+
+### GraphQL Support
+
+It provides `getQueryResolver`, `getSubscriptionResolver`, which return high-order resolvers for GraphQL server. 
+This is very convenient feature to generate CRUD resolvers, via decorated domain model.
+Thanks to [Type-GraphQL](https://19majkel94.github.io/type-graphql/). 
+
+It leverages `pubSub()`, as default publish-subscription engine, for GraphQL subscription. 
+
+GraphQL is the preferred API implementation.
   
 ### Technologies
 
