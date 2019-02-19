@@ -28,7 +28,7 @@ See [Motivation] under development
 
 Command-side is Fabric; query-side is in-memory database. 
 
-See [What we may achieve] under development
+See [How we may achieve deep decentralization] under development
 
 ### Prerequisite
 
@@ -239,9 +239,31 @@ It provides `getQueryResolver`, `getSubscriptionResolver`, which return high-ord
 This is very convenient feature to generate CRUD resolvers, via decorated domain model.
 Thanks to [Type-GraphQL](https://19majkel94.github.io/type-graphql/). 
 
+It will generate executable resolver, for below example query. 
+```
+getCounter(id: "counterId") {
+  id
+  value
+}
+
+getAllCounter {
+  id 
+  value
+}
+
+getCommits(id: "counterId") {
+  id: string;
+  commitId: string;
+  version: number;
+  events;
+  entityId: string;
+  committeAt: string;
+}
+```
+
 It leverages `pubSub()`, as default publish-subscription engine, for GraphQL subscription. 
 
-GraphQL is the preferred API implementation.
+GraphQL is the preferred API implementation; beyond the scope of this library.
   
 ### Technologies
 
@@ -261,11 +283,11 @@ See [Basic Examples](https://github.com/rtang03/examples)
 Fullstack example is innovative pattern of Deeply Decentralized application.
 It is built on top of byfn-network, with 4 x peers & 2 x ca, featured with
 
-- Business application, with 4 x distributed api endpoint, built by [Apollo GraphQL Server](https://www.apollographql.com/), with schema-stitching enabled
-- Business scenario, modelling with [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)
-- Combined domain model and api schema
+- Example business application, with 4 x distributed api endpoint, built by [Apollo GraphQL Server](https://www.apollographql.com/), with schema-stitching enabled
+- Business scenario, modelling with [DDD](https://en.wikipedia.org/wiki/Domain-driven_design); 3 [Aggregates](https://martinfowler.com/bliki/DDD_Aggregate.html), running on 3 different peer apps.
+- The fourth peer app manages the customer PII, so as to fulfill GDPR.
 - Designed with [Onion Architecture](https://www.codeguru.com/csharp/csharp/cs_misc/designtechniques/understanding-onion-architecture.html)
-- Frontend: Reactjs with stateless functional components only, and HOC
+- Frontend: Material-design Reactjs with stateless functional components only, and HOC
 - Frontend: Redux-free local state management
 - One language: Web-ui, middle-tier app, chaincode, and tests are written in Typescript
 - E2E type system [E2E Typing](https://www.youtube.com/watch?v=S93i9wuZRhA&t=4s)
