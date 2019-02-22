@@ -1,6 +1,6 @@
 {
   "name": "fabric-rx-cqrs",
-  "version": "0.1.6",
+  "version": "0.1.11",
   "description": "Library to empower Hyperledger Fabric application with CQRS-ES & Reactive Patterns",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -24,10 +24,11 @@
   },
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test": "yarn run build && mocha --timeout 20000 ./dist/service/eventstore.spec.js",
+    "test:eventstore": "yarn run build && mocha --timeout 20000 ./dist/service/eventstore.spec.js",
     "test:entity-cqrs": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity/entity.spec.js",
     "test:entity-command": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity-command/entity.spec.js",
     "test:entity-query": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity-query/entity.spec.js",
+    "test": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity-query/entity.spec.js",
     "test:projection": "yarn run build && mocha --timeout 20000 ./dist/cqrs/projection/projection.spec.js",
     "test:counter": "yarn run build && mocha --timeout 20000 ./dist/cqrs/example/repository.spec.js",
     "build": "npm run clean && tsc",

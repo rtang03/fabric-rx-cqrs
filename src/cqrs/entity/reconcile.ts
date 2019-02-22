@@ -1,10 +1,11 @@
 import { merge } from 'rxjs';
+import { Reducer } from '../../types';
 import { generateToken, ofTypeByTxId } from '../helper';
 import { store } from '../inversify.config';
 import { Do, ReconcileAction } from './action';
 import { REDUCER, State } from './reducer';
 
-export const reconcile = async (entityName: string, reducer: () => void) =>
+export const reconcile = async (entityName: string, reducer: Reducer) =>
   await new Promise(resolve => {
     const tx_id = generateToken();
     const entity$ = store.select<State>(REDUCER);

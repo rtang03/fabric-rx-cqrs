@@ -59,8 +59,11 @@ export const getSubscriptionResolver: (entName: string) => any = (
 export const getQueryResolver: <T extends ClassType>(
   suffix: string,
   returnType: T
-) => any = <T extends ClassType>(suffix: string, returnType: T) => {
-  @Resolver()
+) => new () => void = <T extends ClassType>(
+  suffix: string,
+  returnType: T
+) => {
+  @Resolver({ isAbstract: true })
   class AbstractResolver {
     @Query(() => returnType, { name: `get${capitalize(suffix)}` })
     async query(
