@@ -28,7 +28,7 @@
     "test:entity-cqrs": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity/entity.spec.js",
     "test:entity-command": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity-command/entity.spec.js",
     "test:entity-query": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity-query/entity.spec.js",
-    "test": "yarn run build && mocha --timeout 20000 ./dist/cqrs/entity-query/entity.spec.js",
+    "test": "yarn run build && mocha --reporter=xunit --reporter-options output=test-results/result.xml --timeout 20000 ./dist/cqrs/entity-query/entity.spec.js",
     "test:projection": "yarn run build && mocha --timeout 20000 ./dist/cqrs/projection/projection.spec.js",
     "test:counter": "yarn run build && mocha --timeout 20000 ./dist/cqrs/example/repository.spec.js",
     "build": "npm run clean && tsc",
