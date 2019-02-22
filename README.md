@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/rtang03/fabric-rx-cqrs.svg?style=svg)](https://circleci.com/gh/rtang03/fabric-rx-cqrs)
+
 ### About
 
 **Hyperledge Fabric: make _Reactive_ and _CQRS-ES_**  
