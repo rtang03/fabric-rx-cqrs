@@ -1,5 +1,4 @@
 [![CircleCI](https://circleci.com/gh/rtang03/fabric-rx-cqrs.svg?style=svg)](https://circleci.com/gh/rtang03/fabric-rx-cqrs)
-
 ### About
 
 **Hyperledge Fabric: make _Reactive_ and _CQRS-ES_**  
@@ -58,9 +57,11 @@ Note that all paths are absolute paths. And, all configurations are required.
 
 **Step 1: Install Fabric, and fabric-samples**
 
-**Step 2: Bootstrap the basic-network**
+**Step 2: Bootstrap the basic-network**  
+Remember to run fabcar example, to validate the installation.
 
-**Step 3: get boilerplated application & set env variables**
+**Step 3: get boilerplated application & set env variables**  
+More examples will added, in Examples.
 
 See Hyperledger [documentation](https://hyperledger-fabric.readthedocs.io/en/release-1.4/) from step 1 to 2.  
 see [Examples](https://github.com/rtang03/examples), from step 3.
@@ -171,10 +172,7 @@ based on non-default reducer. `getProjection` is based on default reducer.
 
 ```
 // counter.spec.ts
-counterRepository
-  .create(id)
-  .save([{ type: 'ADD' }])
-  .then(() => done());
+await counterRepository.create(id).save([{ type: 'ADD' }])
 ```
 
 This writes to Fabric, returning type Entity; is a commit object. If write failure, 
@@ -265,7 +263,9 @@ getCommits(id: "counterId") {
 
 It leverages `pubSub()`, as default publish-subscription engine, for GraphQL subscription. 
 
-GraphQL is the preferred API implementation; beyond the scope of this library.
+GraphQL is the preferred API implementation; beyond the scope of this library.  
+
+GraphQL test-net is under development.  
   
 ### Technologies
 
@@ -300,4 +300,4 @@ It is built on top of byfn-network, with 4 x peers & 2 x ca, featured with
 - Dockerization
 - Follow 12-Factor app methodology
 
-Fullstack code example is only available for those signing corporate NDA.
+Fullstack code example is under development, will be provided later.

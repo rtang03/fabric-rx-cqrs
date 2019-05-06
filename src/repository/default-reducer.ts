@@ -1,6 +1,6 @@
 import { injectable } from 'inversify';
 import { IDefaultReducer } from '../rx-store';
-import { Reducer } from '../types/reducer';
+import { Reducer } from '../types';
 
 @injectable()
 export class DefaultReducer implements IDefaultReducer {

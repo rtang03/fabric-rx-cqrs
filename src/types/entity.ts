@@ -1,4 +1,3 @@
-// import { Entity as _Entity } from '@fabric-cqrs-es/chaincode';
 import GraphQLJSON from 'graphql-type-json';
 import { assign } from 'lodash';
 import { Field, Int, ObjectType } from 'type-graphql';
