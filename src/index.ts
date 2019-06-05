@@ -9,5 +9,13 @@ export { IEffect, IStore, ISideEffects, TYPES } from './rx-store';
 export { reconcile } from './cqrs/entity/reconcile';
 export { getRepository, getMockRepository } from './repository';
 export { getQueryResolver, getSubscriptionResolver } from './resolver';
-export { BaseEvent, Entity, Repository, Reducer } from './types';
+export {
+  BaseEvent,
+  Entity,
+  LocalEntity,
+  LocalBaseEvent,
+  LocalRepository,
+  Repository,
+  Reducer
+} from './types';
 export { addToWallet } from './addToWallet';

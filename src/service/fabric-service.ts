@@ -1,7 +1,7 @@
-import { Entity } from '../types';
 import { inject, injectable, optional } from 'inversify';
 import { from, Observable } from 'rxjs';
 import { IFabricService, Logger, TYPES } from '../rx-store';
+import { Entity } from '../types';
 import { submit } from './submit';
 
 @injectable()

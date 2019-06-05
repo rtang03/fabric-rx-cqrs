@@ -30,3 +30,6 @@ gateway/core.connection.yaml
 NOTE.MD
 
 test-results
+
+database.sqlite
+database.test

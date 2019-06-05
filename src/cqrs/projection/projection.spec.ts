@@ -10,7 +10,7 @@ import {
 } from '.';
 import { IStore, provideStore, TYPES } from '../../rx-store';
 import { Entity } from '../../types';
-import { counterReducer } from '../example/counter-reducer';
+import { counterReducer } from '../../example/counter-reducer';
 import { generateToken, ofProjectionByTxId } from '../helper';
 
 type Counter = {

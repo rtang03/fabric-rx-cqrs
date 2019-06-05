@@ -1,4 +1,4 @@
-import { counterReducer } from '../example/counter-reducer';
+import { counterReducer } from '../../example/counter-reducer';
 
 require('dotenv').config();
 

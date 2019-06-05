@@ -2,13 +2,13 @@ require('dotenv').config();
 
 import { expect } from 'chai';
 import { keys } from 'lodash';
-import { getRepository, setDefaultReducer } from '../..';
-import { Entity } from '../../types';
-import { DeleteByEntnameIdAction } from '../entity-command';
-import * as EntityC from '../entity-command';
-import * as EntityQ from '../entity-query';
-import { generateToken, ofTypeByTxId } from '../helper';
-import { channelEvent, container, store } from '../inversify.config';
+import { getRepository, setDefaultReducer } from '..';
+import { channelEvent, container, store } from '../cqrs';
+import { DeleteByEntnameIdAction } from '../cqrs/entity-command';
+import * as EntityC from '../cqrs/entity-command';
+import * as EntityQ from '../cqrs/entity-query';
+import { generateToken, ofTypeByTxId } from '../cqrs/helper';
+import { Entity } from '../types';
 import { Counter, CounterEvent, counterReducer } from './counter-reducer';
 
 setDefaultReducer(container, 'counter', counterReducer);

@@ -1,8 +1,9 @@
+// import { GraphQLJSON } from 'graphql-type-json';
 import { assign } from 'lodash';
 import { Field, Int, ObjectType } from 'type-graphql';
 
 @ObjectType({ description: 'Base Event' })
-export class BaseEvent {
+export class LocalBaseEvent {
   @Field({ nullable: true })
   readonly type?: string;
 
@@ -11,30 +12,30 @@ export class BaseEvent {
 }
 
 @ObjectType({ description: 'Commit' })
-export class Entity<T extends BaseEvent = any> {
+export class LocalEntity<T extends LocalBaseEvent = any> {
   @Field(() => String, { nullable: true })
-  id?: string;
+  id: string;
 
   @Field(() => String, { nullable: true })
-  entityName?: string;
+  entityName: string;
 
   @Field(() => Int, { nullable: true })
-  version?: number;
+  version: number;
 
   @Field(() => String, { nullable: true })
-  commitId?: string;
+  commitId: string;
 
   @Field(() => String, { nullable: true })
-  committedAt?: string;
+  committedAt: string;
 
   @Field(() => String, { nullable: true })
-  entityId?: string;
+  entityId: string;
 
-  @Field(() => [BaseEvent], { nullable: true })
-  events?: BaseEvent[];
+  @Field(() => [LocalBaseEvent], { nullable: true })
+  events: LocalBaseEvent[];
 }
 
-export function createEntity<T extends BaseEvent = any>({
+export function createLocalEntity<T extends LocalBaseEvent = any>({
   id,
   entityName,
   version,
@@ -44,7 +45,7 @@ export function createEntity<T extends BaseEvent = any>({
   entityName: string;
   version: number;
   events: T[];
-}): Entity<T> {
+}): LocalEntity<T> {
   const now = Date.now();
   const date = new Date(now).toISOString().replace(/[^0-9]/g, '');
   const commitId = `${date}:${id}`;

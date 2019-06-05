@@ -5,6 +5,8 @@ import fs from 'fs';
 import path from 'path';
 
 export async function addToWallet() {
+  if (process.env.NODE_ENV === 'testing') return;
+
   if (!process.env.WALLET_ROOT)
     throw new Error('No root path to wallet');
 

@@ -1,4 +1,4 @@
-import { Reducer } from '../../types';
+import { Reducer } from '../types';
 
 export interface CounterEvent {
   type: string;
@@ -9,11 +9,11 @@ export interface Counter {
 }
 
 export const counterReducer: Reducer<Counter> = (
-  history: Event[],
+  history: CounterEvent[],
   initial = { value: 0 }
 ): Counter => history.reduce(reducer, initial);
 
-const reducer = ({ value }, e: Event) => {
+const reducer = ({ value }, e: CounterEvent) => {
   switch (e.type) {
     case 'ADD':
       value++;
