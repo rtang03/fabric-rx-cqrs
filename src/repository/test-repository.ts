@@ -10,8 +10,9 @@ import {
   ofTypeByTxId
 } from '../cqrs/helper';
 import * as Projection from '../cqrs/projection';
-import { Entity, Repository } from '../types';
+import { Entity, TestRepository } from '../types';
 
+const testAccounts = ['test@example.com'];
 const command$ = store.select<EntityC.State>(EntityC.REDUCER);
 const query$ = store.select<EntityQ.State>(EntityQ.REDUCER);
 const projection$ = store.select<Projection.State>(Projection.REDUCER);
@@ -58,13 +59,21 @@ const getPromiseToSave = ({
   });
 };
 
-export const getRepository = <TEntity, TEvent>(
+export const getTestRepository = <TEntity, TEvent>(
   entityName: string,
   reducer: (history) => TEntity
-): Repository<TEntity, TEvent> => ({
+): TestRepository<TEntity, TEvent> => ({
   create: id => ({
     save: events => getPromiseToSave({ id, entityName, version: 0, events })
   }),
+  deleteByCommitId: id =>
+    new Promise<any>((resolve, reject) => {
+      const tx_id = generateToken();
+    }),
+  deleteByEntityId: id =>
+    new Promise<any>((resolve, reject) => {
+      const tx_id = generateToken();
+    }),
   getById: id =>
     new Promise<{
       currentState: TEntity;

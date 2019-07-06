@@ -1,11 +1,13 @@
 import { Entity } from '../types';
 
-export type Repository<TEntity = any, TEvent = any> = {
+export type TestRepository<TEntity = any, TEvent = any> = {
   create?: (
     id: string
   ) => {
     save: (events: TEvent[]) => Promise<Entity | { error: any }>;
   };
+  deleteByCommitId?: (id: string) => Promise<any>;
+  deleteByEntityId?: (id: string) => Promise<any>;
   getByEntityName?: () => Promise<{ entities: TEntity[] | { error: any } }>;
   getById?: (
     id: string

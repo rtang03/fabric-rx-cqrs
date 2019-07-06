@@ -62,8 +62,8 @@ export const getMockRepository = <T, K>(
       ).map(events => reducer(events))
     }),
   getCommitById: id =>
-    Promise.resolve<{ entities: Entity[] }>({
-      entities: filter(
+    Promise.resolve<{ commits: Entity[] }>({
+      commits: filter(
         values<Entity>(mockdb),
         ({ entityId }) => entityId === id
       )

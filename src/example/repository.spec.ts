@@ -112,9 +112,9 @@ describe('Counter Example', () => {
   it('🔬 should return all commits', done => {
     counterRepo
       .getCommitById(id)
-      .then(({ entities }: { entities: Entity[] }) => {
-        expect(entities.length).to.equal(4);
-        entities.forEach(e => {
+      .then(({ commits }: { commits: Entity[] }) => {
+        expect(commits.length).to.equal(4);
+        commits.forEach(e => {
           expect(e.entityName).to.equal(entityName);
           expect(e.id).to.equal(id);
           expect(e.version).to.equal(0);

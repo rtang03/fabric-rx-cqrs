@@ -1,6 +1,6 @@
 {
   "name": "fabric-rx-cqrs",
-  "version": "0.1.23",
+  "version": "0.1.25",
   "description": "Library to empower Hyperledger Fabric application with CQRS-ES & Reactive Patterns",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -31,8 +31,6 @@
     "test": "yarn run build && mocha --reporter=xunit --reporter-options output=test-results/result.xml --timeout 20000 ./dist/cqrs/entity-query/entity.spec.js",
     "test:projection": "yarn run build && mocha --timeout 20000 ./dist/cqrs/projection/projection.spec.js",
     "test:counter": "yarn run build && mocha --timeout 20000 ./dist/example/repository.spec.js",
-    "localDB:setup": "ts-node ./src/example/setup.ts",
-    "test:counter:local": "npm run localDB:setup && yarn run build && mocha --timeout 20000 ./dist/example/localRepository.spec.js",
     "build": "npm run clean && tsc",
     "build:watch": "tsc -w",
     "clean": "rimraf dist",
@@ -57,9 +55,7 @@
     "prettyjson": "^1.2.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.2",
-    "sqlite3": "^4.0.8",
     "type-graphql": "^0.17.4",
-    "typeorm": "^0.2.17",
     "winston": "^3.2.1"
   },
   "devDependencies": {

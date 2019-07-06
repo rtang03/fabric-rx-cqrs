@@ -1,4 +1,4 @@
-export type Reducer<T = any> = (
+export type Reducer<TEntity = any> = (
   history: Array<{ type: string; payload?: any }>,
-  initial?: T
-) => T;
+  initial?: TEntity
+) => TEntity;
